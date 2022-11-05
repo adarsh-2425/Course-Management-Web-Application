@@ -5,7 +5,7 @@ const cors =require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
-var session = require('cookie-session');
+var session = require('express-session');
 
 // Connect to Database
 mongoose.connect(config.database);
@@ -21,8 +21,14 @@ mongoose.connection.on('error',(err)=>{
 
 const app = express();
 
+const users = require('./routes/users');
+
 // CORS Middleware
 app.use(cors());
+
+// Set Static Folder
+app.use(express.static(`./public`));
+
 
 // bodyparser parses incoming request. eg: parsing content from form
 app.use(bodyParser.json());
@@ -40,15 +46,17 @@ app.use(bodyParser.json());
 
 //require('./configure/passport')(passport);
 
-// Set Static Folder
-app.use(express.static(`./public`));
+app.use('/users', users);
+
+
+
 
 // Index Route
 app.get('/',(req,res)=>{
-    console.log('server ok');
+    res.send('server ok');
 })
 
 // Start Server
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
