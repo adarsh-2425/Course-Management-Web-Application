@@ -35,4 +35,41 @@ router.post('/register',(req,res,next)=>{
     })
 });
 
+//Authenticate
+router.post('/authenticate',(req, res, next)=>{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.getUserByEmail(email, (err, user)=>{
+        if(err) throw err;
+        if(!user){
+            return res.json({success: false, msg:'Wrong Email'})
+        }
+
+        User.comparePassword(password, user.password, (err, isMatch)=>{
+            if (err) throw err;
+            if(isMatch){
+               const token = jwt.sign({data:user}, config.secret, {
+                expiresIn: 604800 //week
+               });
+
+               res.json({
+                success: true,
+                token:`Bearer ${token}`,
+                user:{
+                        id: user._id,
+                        name: user.firstName + " " + user.lastName,
+                        username: user.username,
+                        email: user.email,
+                        role: user.role,
+                }
+               });
+            }
+            else{
+                return res.json({success: false, msg: 'Wrong Password'});
+                }
+        })
+    })
+})
+
 module.exports = router;

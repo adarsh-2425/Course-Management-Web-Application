@@ -34,17 +34,16 @@ app.use(express.static(`./public`));
 app.use(bodyParser.json());
 
 // Passport Middleware
-// app.use(session({
-//     secret: 'keyboard cat',
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: { secure: true }
-//   }))
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-//require('./configure/passport')(passport);
+require('./config/passport')(passport);
 
 app.use('/users', users);
 

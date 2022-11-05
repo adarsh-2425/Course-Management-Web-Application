@@ -60,6 +60,13 @@ module.exports.getUserByUsername = (username,callback)=>{
     User.findOne(query, callback);
 }
 
+//Calling By Username
+module.exports.getUserByEmail = (email,callback)=>{
+    //creating a query
+    const query = {email: email}
+    User.findOne(query, callback);
+}
+
 module.exports.addUser = (newUser, callback)=>{
     //actual callback is in route
     //when this fn executes, result is passed to addUser fn in route as callback
@@ -71,5 +78,13 @@ module.exports.addUser = (newUser, callback)=>{
             newUser.password = hash;
             newUser.save(callback);
         });
+    });
+}
+
+// Comparing Passwords in Authenticate
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+    bcrypt.compare(candidatePassword, hash, (err, isMatch)=>{
+        if (err) throw err;
+        callback(null, isMatch);
     });
 }
