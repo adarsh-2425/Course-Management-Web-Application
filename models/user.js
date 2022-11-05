@@ -81,7 +81,7 @@ module.exports.addUser = (newUser, callback)=>{
     });
 }
 
-// Comparing Passwords in Authenticate
+// Comparing Passwords in Authenticatee
 module.exports.comparePassword = function(candidatePassword, hash, callback){
     bcrypt.compare(candidatePassword, hash, (err, isMatch)=>{
         if (err) throw err;
