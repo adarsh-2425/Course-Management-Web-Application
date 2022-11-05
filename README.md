@@ -1,4 +1,4 @@
-# Course-Management-Web-Application
+# Course Management Web Application
 
 This project was made with MEAN Stack
 <!-- 
