@@ -18,6 +18,9 @@ const UserSchema = mongoose.Schema({
         type: String,
         default:'student'
     },
+    course: {
+        type: String
+    },
     phone: {
         type: Number,
         required: true
@@ -67,6 +70,7 @@ module.exports.getUserByEmail = (email,callback)=>{
     User.findOne(query, callback);
 }
 
+//Register User
 module.exports.addUser = (newUser, callback)=>{
     //actual callback is in route
     //when this fn executes, result is passed to addUser fn in route as callback
@@ -81,6 +85,8 @@ module.exports.addUser = (newUser, callback)=>{
     });
 }
 
+
+
 // Comparing Passwords in Authenticatee
 module.exports.comparePassword = function(candidatePassword, hash, callback){
     bcrypt.compare(candidatePassword, hash, (err, isMatch)=>{
@@ -88,3 +94,5 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
         callback(null, isMatch);
     });
 }
+
+

@@ -22,6 +22,7 @@ mongoose.connection.on('error',(err)=>{
 const app = express();
 
 const users = require('./routes/users');
+const courses = require('./routes/courses');
 
 // CORS Middleware
 app.use(cors());
@@ -46,9 +47,7 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
-
-
-
+app.use('/courses', courses);
 
 // Index Route
 app.get('/',(req,res)=>{

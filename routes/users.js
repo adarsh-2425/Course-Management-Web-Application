@@ -4,10 +4,13 @@ const User = require('../models/user');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
+const bcrypt = require('bcryptjs');
 
 
-// REGISTER
-router.post('/register',(req,res,next)=>{
+
+
+// Create User
+router.post('/create',(req,res,next)=>{
     let newUser = new User ({
         //Whatever submitted in the form, we can get with req.body
         //passing objects
@@ -71,5 +74,62 @@ router.post('/authenticate',(req, res, next)=>{
         })
     })
 })
+//{_id: {$ne: "636669c764d20587be67c3b4"}}
+//Read All Users
+router.get('/read',(req,res)=>{
+    User.find()
+    .then((users)=>{
+        res.send(users)
+    });
+});
+
+//Update User
+router.put('/update', (req,res)=>{
+    id=req.body._id,
+    firstName= req.body.firstName,
+    lastName=req.body.lastName,
+    gender= req.body.gender,
+    email= req.body.email,
+    about= req.body.about,
+    phone=req.body.phone,
+    username= req.body.username,
+    password=req.body.password,
+
+    bcrypt.genSalt(10, (err, salt)=>{
+        bcrypt.hash(password, salt, (err, hash)=>{
+            if(err) throw err;
+            Password = hash;
+        
+    
+
+    User.findByIdAndUpdate({"_id":id},
+                            {$set:{
+                                "firstName": firstName,
+                                "lastName": lastName,
+                                'gender': gender,
+                                'email': email,
+                                'about':about,
+                                'phone': phone,
+                                'username': username,
+                                'password': Password
+                            }})
+            .then(function(){
+            //res.send()
+            res.json({success: true, msg: 'User Updated'})
+        })
+    })
+    })
+    });
+
+//Delete User
+router.delete('/delete/:id',()=>{
+    id = req.params.id;
+    User.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        res.send();
+    })
+});
+
+
 
 module.exports = router;
