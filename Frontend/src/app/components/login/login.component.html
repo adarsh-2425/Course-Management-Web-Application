@@ -6,38 +6,30 @@
             <h2 class="mt-2">NEW USER</h2>
             <div class=" lines"></div>
             <h5 class="mt-2">Don't Have An Account Yet?</h5>
-            <div class="mt-4 btn btn-outline-secondary font-weight-bold"><strong>Sign Up With Your Email</strong></div>
+            <div (click)="openRegisterDialog()" class="mt-4 btn btn-outline-secondary font-weight-bold"><strong>Sign Up With Your Email</strong></div>
         </div>
     </div>
         <!-- Existing User -->
-        <div class="col-lg-6">
+        <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="mt-5">
                 <h2 class="mt-2">EXISTING USER</h2>
                 <div class=" lines"></div>
                 <h5 class="mt-2">Login to your Account</h5>
-                <!-- Login Page -->
-        <div class="col-sm-12 col-md-12 col-lg-6">
-            <div class="login" [ngStyle]="{'background': 'url(' + loginDivUrl + ')   0 / cover'}" >
-            
-                <h2 class="page-header">Login</h2>
                 <form class="loginform" (ngSubmit)="onLoginSubmit()">
-                    <div class="form-group">
+                    <div class="mt-3 form-group">
                         <label for="username">Email</label>
                         <input type="text" placeholder="name@abc.com" name="email" [(ngModel)]="email" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="mt-3 form-group">
                         <label for="password">Password</label>
                         <input type="password" placeholder="password" name="password" [(ngModel)]="password" class="form-control">
                     </div>
-                    <div class="button">
-                    <input type="submit" class="btn btn-primary" value="Login">
+                    <div class="mt-3 mb-3">
+                    <input type="submit" class="btn btn-primary text-light btn-outline-success" style="font-weight: bold; " value="Login">
                 </div>
                 </form>
-                <a id="already" routerLink="/register">Feel Free to Create a Account</a>
                 </div>
             </div>
-                <div class="mt-4 btn btn-outline-secondary font-weight-bold"><strong>Login</strong></div>
             </div>
         </div>
-    </div>
-</div>
+

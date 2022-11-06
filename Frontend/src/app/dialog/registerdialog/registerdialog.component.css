@@ -1,0 +1,12 @@
+.weakPwd {
+    color: red;
+}
+.mediumPwd{
+    color: orange;
+}
+.strongPwd{
+    color: green;
+}
+.fa-circle-xmark{
+    color: red;
+}

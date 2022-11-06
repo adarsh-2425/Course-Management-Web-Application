@@ -3,7 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { ValidateService } from 'src/app/services/validate.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-
+import {MatDialog} from '@angular/material/dialog';
+import { RegisterdialogComponent } from 'src/app/dialog/registerdialog/registerdialog.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private ValidateService: ValidateService,
     private AuthService: AuthService,
-    private Router: Router
+    private Router: Router,
+    public dialog: MatDialog,
 
   ) { }
 
@@ -64,5 +66,15 @@ export class LoginComponent implements OnInit {
     );
     
  }
+
+ // Promote User Dialog
+ openRegisterDialog(): void {
+  let dialogRef = this.dialog.open(RegisterdialogComponent, { disableClose: true });
+  height :'40%'
+  width : '60%'
+    
+    
+
+}
 
 }

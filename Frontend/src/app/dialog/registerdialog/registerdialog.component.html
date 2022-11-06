@@ -1,0 +1,86 @@
+<!-- closebutton  -->
+<div class="text-end">
+    <abbr title="Close">
+    <i  [mat-dialog-close]="true" class="fa-solid fa-circle-xmark fa-2xl "></i>
+</abbr>
+</div>
+
+<!-- Register -->
+    
+    <h2 class="page-header mb-3">Create An Account</h2>
+    <mat-dialog-content>
+    <form #formisvalid = ngForm (ngSubmit)="onRegisterSubmit()">
+        <div class="form-group" >
+            <label for="name" >First Name</label>
+            <span class="asterik"> *</span>
+            <input type="text"   [(ngModel)]="firstName" name="firstName" class="form-control">
+            <span class="{{alertStyle}}" [innerHtml]="Namehtml"></span>
+            
+        </div>
+        <div class="form-group">
+            <label for="name">Last Name</label>
+            <input type="text" class="{{borderLastName}}" [(ngModel)]="lastName"  name="lastName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="name">Gender</label>
+            <select name="gender" [(ngModel)]="gender" id="gender" class="form-select" >
+                <option value="" selected>Select Your Gender...</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+            <!-- <input type="text" [(ngModel)]="gender" name="gender" class="form-control"> -->
+        </div>
+        <div class="form-group">
+            <label for="name">Phone Number</label>
+            <span class="asterik"> *</span>
+            <input type="tel"  [(ngModel)]="phone" name="phone" class="form-control">
+            <span class="alertPhone">{{Phonehtml}}</span>
+            
+        </div>
+        <div class="form-group">
+            <label for="name">Email</label>
+            <span class="asterik"> *</span>
+            <input type="text"  [(ngModel)]="email" name="email" class="form-control">
+            <span class="{{alertStyle}}" [innerHtml]="Emailhtml"></span>
+            
+        </div>
+       
+        <div class="form-group">
+            <label for="name">Username</label>
+            <span class="asterik"> *</span>
+            <input type="text" [(ngModel)]="username" name="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="name">Password</label>
+            <span class="asterik"> *</span>
+            <input  type= "{{pwdType? 'password' : 'text'}}" id="myInput"  (keyup)="checkstrength()"  [(ngModel)]="password" name="password" class="form-control pwdIcon">
+            <br>
+            <!-- An element to toggle between password visibility -->
+            <input type="checkbox" (click)="pwdToggle()"> Show Password
+            <br>  
+    <br>
+            <span class="{{alertStyle}}" [innerHtml]="testhtml"></span>
+    
+            <li><strong>Password must contain Minimum 8 characters, at least one uppercase, one lower case, and one number</strong></li>
+                  <li>Add a special symbol (!@#$&*) for Medium strength</li>
+                  <li>Try to add more than 10 characters for a Stronger Password </li>
+                  <br>
+        </div>
+        <div class="form-group">
+            <label for="name">Confirm Password</label>
+            <span class="asterik"> *</span>
+            <input type="password" [(ngModel)]="repeatPassword" name="repeatPassword" class="form-control">
+        </div>
+        <br>
+        <input type="submit" mat-dialog-close [disabled]="formisvalid" class="btn btn-primary"  value="Signup">
+        <br>
+    </form>
+</mat-dialog-content>
+    <mat-dialog-actions>
+    <a id="already" [mat-dialog-close]="true" routerLink="/login">Already Have An Account?</a>
+</mat-dialog-actions>
+  
+  
+
+

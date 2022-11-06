@@ -17,6 +17,15 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
+  registerUser(user: any) {
+    let headers = new HttpHeaders()
+    headers.append('Content-Type', 'application/json')
+    return this.http.post<any>(`${this.server_address}/users/create`, user, {
+      headers
+    })
+  }
+  
+
   authenticateUser(user:any){
     let headers = new HttpHeaders()
     headers.append('Content-Type', 'application/json')
