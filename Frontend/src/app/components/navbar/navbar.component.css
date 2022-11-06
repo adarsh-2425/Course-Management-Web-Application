@@ -6,3 +6,8 @@
 .roundImage{
     border-radius: 50%;
 }
+.loginbutton:hover{
+    color: white;
+    border-color: red;
+    background-color: white;
+}
