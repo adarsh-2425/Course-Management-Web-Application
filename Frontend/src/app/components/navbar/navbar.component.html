@@ -1,4 +1,4 @@
-<section class="navbar1">
+<section class="navbar1" *ngIf="!authService.loggedIn()">
 <nav class="navbar d-none  d-lg-block d-md-block  navbar-expand-lg navbar-expand-sm  text-light bg-secondary">
     <div class="container ">
       <a class="navbar-brand" href="#" >
@@ -18,7 +18,7 @@
   </nav>
 </section>
 
-<section class="navbar2">
+<section class="navbar2" *ngIf="!authService.loggedIn()">
     <nav class="navbar d-none  d-lg-block   navbar-expand-lg bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
@@ -65,11 +65,15 @@
             <div class="navbar-nav mx-auto "> 
                 
                 <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="">Home</a>  
-                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard">About Us</a>  
-                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard">Initiatives</a>  
-                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard">Services</a>  
-                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard">Contact</a>  
-                <a class="nav-link loginbutton text-danger btn btn-outline-primary rounded" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/login"><strong>Login</strong></a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="!authService.loggedIn()">About Us</a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="!authService.loggedIn()">Initiatives</a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="!authService.loggedIn()">Services</a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="!authService.loggedIn()">Contact</a>  
+                <a class="nav-link loginbutton text-danger btn btn-outline-primary rounded" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/login" *ngIf="!authService.loggedIn()"><strong>Login</strong></a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="authService.loggedIn()">Profile</a>  
+                <a class="nav-link " data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" routerLink="/dashboard" *ngIf="authService.loggedIn()">Settings</a>  
+               
+                <a class="nav-link loginbutton text-danger btn btn-outline-primary rounded" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-current="page" (click)="onLogoutClick()" *ngIf="authService.loggedIn()"><strong>Logout</strong></a>  
     
               </div>
           </div>

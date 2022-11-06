@@ -53,13 +53,18 @@ export class LoginComponent implements OnInit {
         if(data.success){
           this.AuthService.storeUserData(data.token, data.user, data.role, data.username, data.id);
           this.toastr.success('Login Successful');
-          console.log('success');
-          
-          this.Router.navigate(['']);
+          if('Admin' == data.role){
+            this.Router.navigate(['/admindashboard']);
+          }
+          else if('Trainer' == data.role){
+            this.Router.navigate(['/trainerdashboard']);
+          }
+          else{
+            this.Router.navigate(['/studentdashboard']);
+          }
         }
         else{
           this.toastr.error(data.msg);
-          this.Router.navigate(['']);
         }
         
       }
