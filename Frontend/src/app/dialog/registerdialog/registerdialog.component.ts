@@ -3,6 +3,7 @@ import { ValidateService } from 'src/app/services/validate.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-registerdialog',
@@ -18,7 +19,7 @@ export class RegisterdialogComponent implements OnInit {
   Phonehtml:string = '';
   Emailhtml:string = '';
   borderLastName:string = '';
-  condition:boolean = false;
+  theHtmlString:string = '';
   
   firstName:string = '';
   lastName:string = '';
@@ -37,7 +38,8 @@ export class RegisterdialogComponent implements OnInit {
     private toastr: ToastrService,
     private validateService: ValidateService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public dialogRef: MatDialogRef<RegisterdialogComponent>,
   ) { }
 
   ngOnInit(): void {
@@ -110,9 +112,9 @@ if(!this.validateService.repeatPassword(user)){
    this.authService.registerUser(user).subscribe(
     data => {
       if(data.success){
+          this.dialogRef.close(); 
           this.toastr.success('Account is Created. Please Login');
           this.router.navigate(['/login']);
-          //this.condition = true;
         } 
       else{
         this.toastr.warning('Something Went Wrong!!!');

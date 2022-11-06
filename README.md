@@ -34,3 +34,22 @@ https://getbootstrap.com/docs/4.0/utilities/colors/
 
 ## Buttons in Bootstrap
 https://getbootstrap.com/docs/4.0/components/buttons/
+
+## Angular Material Dialog
+https://material.angular.io/components/dialog/overview
+
+## Close Angular Dialog
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html',
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
