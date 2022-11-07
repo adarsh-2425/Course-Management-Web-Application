@@ -25,6 +25,7 @@ import { CoursedialogComponent } from './dialog/coursedialog/coursedialog.compon
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { TrainerDashboardComponent } from './components/trainer-dashboard/trainer-dashboard.component';
 import { StudentDashboardComponent } from './components/student-dashboard/student-dashboard.component';
+import { EvaluatedialogComponent } from './dialog/evaluatedialog/evaluatedialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StudentDashboardComponent } from './components/student-dashboard/studen
     CoursedialogComponent,
     AdminDashboardComponent,
     TrainerDashboardComponent,
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    EvaluatedialogComponent
   ],
   
   imports: [

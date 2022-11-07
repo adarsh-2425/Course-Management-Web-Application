@@ -1,0 +1,38 @@
+<!-- closebutton  -->
+<div class="text-end">
+    <abbr title="Close">
+    <i  [mat-dialog-close]="true" class="fa-solid fa-circle-xmark fa-2xl mb-4"></i>
+</abbr>
+</div>
+
+<!-- Evaluate -->
+<div class="mb-4 p-3 bg-secondary text-white rounded text-center">
+    <h1>Student Name's  Assignment</h1>
+</div>
+<a href="" target="_blank" class="viewbutton btn btn-primary text-center fw-bold">View Assignment</a>
+
+<form action="" class="mt-4">
+    <div class="form-group mb-4">
+        <label for="grade" class="fw-bold mb-2">Grade</label>
+            <select name="grade"  id="grade" class="form-select" >
+                <option value="" selected>Choose Grade...</option>
+                <option value="male">A+</option>
+                <option value="female">A</option>
+                <option value="others">B+</option>
+                <option value="others">B</option>
+                <option value="others">C+</option>
+                <option value="others">C</option>
+                <option value="others">P</option>
+                <option value="others">F</option>
+            </select>
+    </div>
+    <div class="form-group">
+        <label for="feedback" class="fw-bold mb-2">Feedback</label>
+        <input type="text" name="feedback" class="form-control" id="feedback">
+    </div>
+    <div class="form-group mt-4 text-center">
+        <a  class="btn btn-danger cancel"  value="Cancel">Cancel</a>
+        <input type="submit"  class="btn btn-success"  value="Done">
+    </div>
+</form>
+

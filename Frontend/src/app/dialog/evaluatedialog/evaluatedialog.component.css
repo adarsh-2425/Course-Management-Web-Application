@@ -1,0 +1,11 @@
+.viewbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-circle-xmark{
+    color: red;
+}
+.cancel{
+    margin-right:1em;
+}

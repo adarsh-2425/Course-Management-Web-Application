@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EvaluatedialogComponent } from 'src/app/dialog/evaluatedialog/evaluatedialog.component';
 
 @Component({
   selector: 'app-trainer-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
   }
+
+
+  // Promote User Dialog
+ openEvaluateDialog(): void {
+  let dialogRef = this.dialog.open(EvaluatedialogComponent, { disableClose: true });
+  height :'40%'
+  width : '60%'
+}
 
 }
