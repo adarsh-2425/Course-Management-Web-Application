@@ -4,31 +4,30 @@
     <i  [mat-dialog-close]="true" class="fa-solid fa-circle-xmark fa-2xl mb-4"></i>
 </abbr>
 </div>
-
 <!-- Evaluate -->
 <div class="mb-4 p-3 bg-secondary text-white rounded text-center">
-    <h1>Student Name's  Assignment</h1>
+    <h1>`{{Assignments.Username}} Assignment`</h1>
 </div>
-<a href="" target="_blank" class="viewbutton btn btn-primary text-center fw-bold">View Assignment</a>
+<a href="{{Assignments.Link}}" target="_blank" class="viewbutton btn btn-primary text-center fw-bold">View Assignment</a>
 
-<form action="" class="mt-4">
+<form (ngSubmit)="evaluateAssignment()" class="mt-4">
     <div class="form-group mb-4">
-        <label for="grade" class="fw-bold mb-2">Grade</label>
-            <select name="grade"  id="grade" class="form-select" >
+        <label for="mark" class="fw-bold mb-2">Grade</label>
+            <select name="mark" [(ngModel)]="Assignments.mark"  id="mark" class="form-select" >
                 <option value="" selected>Choose Grade...</option>
-                <option value="male">A+</option>
-                <option value="female">A</option>
-                <option value="others">B+</option>
-                <option value="others">B</option>
-                <option value="others">C+</option>
-                <option value="others">C</option>
-                <option value="others">P</option>
-                <option value="others">F</option>
+                <option value="A+">A+</option>
+                <option value="A">A</option>
+                <option value="B+">B+</option>
+                <option value="B">B</option>
+                <option value="C+">C+</option>
+                <option value="C">C</option>
+                <option value="P">P</option>
+                <option value="F">F</option>
             </select>
     </div>
     <div class="form-group">
         <label for="feedback" class="fw-bold mb-2">Feedback</label>
-        <input type="text" name="feedback" class="form-control" id="feedback">
+        <input type="text" [(ngModel)]="Assignments.feedback" name="feedback" class="form-control" id="feedback">
     </div>
     <div class="form-group mt-4 text-center">
         <a  class="btn btn-danger cancel"  value="Cancel">Cancel</a>

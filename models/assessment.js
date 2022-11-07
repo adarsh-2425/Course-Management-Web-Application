@@ -22,7 +22,7 @@ const AssessmentSchema = mongoose.Schema({
         type: Number
     },
     Mark: {
-        type: Number
+        type: String
     },
     AssessedBy: {
         type: String

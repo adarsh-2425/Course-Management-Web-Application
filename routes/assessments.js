@@ -2,7 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Assessment = require('../models/assessment');
 
-// Create New Course
+// Read Each Assignment
+router.get(`/geteach/:id`, (req,res)=>{
+    const id = req.params.id;
+    Assessment.findOne({"_id":id})
+    .then((assessment)=>{
+        res.send(assessment);
+    })
+});
+
+// Create New Assignment
 router.post('/create',(req,res)=>{
     let newAssessment = new Assessment({
         Username: req.body.username,
@@ -25,7 +34,7 @@ router.post('/create',(req,res)=>{
     })
 });
 
-//Read All Courses
+//Read All Assignments
 router.get('/read',(req,res)=>{
     Assessment.find()
     .then((assessments)=>{
@@ -33,12 +42,13 @@ router.get('/read',(req,res)=>{
     });
 });
 
-//Update Courses
+
+
+//Update Assignment
 router.put('/update', (req,res)=>{
         id = req.body._id,
         Username = req.body.username,
         Link = req.body.link,
-        LastDate = req.body.lastDate,
         SubmittedDate = req.body.submittedDate,
         CourseName = req.body.courseName,
         Module = req.body.module,
@@ -46,25 +56,24 @@ router.put('/update', (req,res)=>{
         AssessedBy = req.body.AssessedBy,
         Feedback = req.body.feedback
 
+        
         Assessment.findByIdAndUpdate({"_id":id},
                             {$set:{
-                                "Name": Name,
-                                Username : Username,
-                                Link : Link,
-                                LastDate : lastDate,
-                                SubmittedDate : submittedDate,
-                                CourseName : courseName,
-                                Module : Module,
-                                Mark : Mark,
-                                AssessedBy : AssessedBy,
-                                Feedback : Feedback
+                                "Username" : Username,
+                                "Link" : Link,
+                                "SubmittedDate" : SubmittedDate,
+                                "CourseName" : CourseName,
+                                "Module" : Module,
+                                "Mark" : Mark,
+                                "AssessedBy" : AssessedBy,
+                                "Feedback" : Feedback
                             }})
             .then(function(){
             res.send();
         })
     });
 
-//Delete Course
+//Delete Assignment
 router.delete('/delete/:id',()=>{
     id = req.params.id;
     Assessment.findByIdAndDelete({"_id":id})

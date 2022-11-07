@@ -14,7 +14,7 @@
                     <h3 class="card-title mt-3 text-center text-dark">Evaluate Assignments</h3>
                     <div class="card-body">
                         <div class='table-responsive'>
-                            <table class='table'>
+                            <table class='table' >
                                   
                               <thead class="head">
                                 <tr>
@@ -25,11 +25,11 @@
                                
                               </thead>
                               <tbody>
-                                  <tr >
-                                      <td>lol</td>
-                                      <td>lol</td>
+                                  <tr *ngFor="let Assignment of Assignments">
+                                      <td>{{Assignment.Username}}</td>
+                                      <td>{{Assignment.Module}}</td>
                                       <td>
-                                        <button class="btn btn-primary" (click)="openEvaluateDialog()" style="cursor:pointer">Evaluate</button>
+                                        <button class="btn btn-primary" (click)="openEvaluateDialog(Assignment)" style="cursor:pointer">Evaluate</button>
                                     </td> 
                                     </tr>              
                               </tbody>

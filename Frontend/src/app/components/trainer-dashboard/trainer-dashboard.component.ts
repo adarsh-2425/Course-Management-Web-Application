@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EvaluatedialogComponent } from 'src/app/dialog/evaluatedialog/evaluatedialog.component';
+import { AssessmentService } from 'src/app/services/assessment.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trainer-dashboard',
@@ -9,16 +11,28 @@ import { EvaluatedialogComponent } from 'src/app/dialog/evaluatedialog/evaluated
 })
 export class TrainerDashboardComponent implements OnInit {
 
+  Assignments:any[] | undefined;
+  trainername: any;
+
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private AssessmentService: AssessmentService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
+    this.trainername = localStorage.getItem('username');
+
+    this.AssessmentService.getAssignments()
+    .subscribe((data)=>{
+      this.Assignments = JSON.parse(JSON.stringify(data)); 
+    });
   }
 
 
   // Promote User Dialog
- openEvaluateDialog(): void {
+ openEvaluateDialog(Assignment:any): void {
+  localStorage.setItem("evaluateId", Assignment._id.toString());
   let dialogRef = this.dialog.open(EvaluatedialogComponent, { disableClose: true });
   height :'40%'
   width : '60%'

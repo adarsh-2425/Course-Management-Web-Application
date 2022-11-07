@@ -18,6 +18,7 @@ router.post('/create',(req,res,next)=>{
         lastName: req.body.lastName,
         gender: req.body.gender,
         email: req.body.email,
+        role: req.body.role,
         phone: req.body.phone,
         username: req.body.username,
         //password will be run through bcrypt
@@ -89,6 +90,7 @@ router.put('/update', (req,res)=>{
     firstName= req.body.firstName,
     lastName=req.body.lastName,
     gender= req.body.gender,
+    role = req.body.role,
     email= req.body.email,
     about= req.body.about,
     phone=req.body.phone,
@@ -109,6 +111,7 @@ router.put('/update', (req,res)=>{
                                 'gender': gender,
                                 'email': email,
                                 'about':about,
+                                'role':role,
                                 'phone': phone,
                                 'username': username,
                                 'password': Password

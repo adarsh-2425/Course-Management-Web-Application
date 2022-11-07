@@ -13,10 +13,10 @@
         <div class="card">
             <h3 class="card-title mt-3 text-center text-dark">Submit Assignment</h3>
             <div class="card-body">
-                <form action="">
+                <form (ngSubmit)="onAssignmentSubmit()">
                     <div class="form-group" >
                         <label id='labelid' for="module">Choose a Module:</label>
-                        <select name="module" id="module" class="form-control form-select" >
+                        <select name="module" [(ngModel)]="module" id="module" class="form-control form-select" >
                         <option value="1">Module 1</option>
                         <option value="2">Module 2</option>
                         <option value="3">Module 3</option>
@@ -28,14 +28,14 @@
                     <br>
                     <div class="form-group" >
                         <label id='labelid' for="link">Assignment Link : </label>
-                        <input type="url" name="link" id="link" class="form-control" placeholder="Paste Link Here">
+                        <input type="url" [(ngModel)]="link" name="link" id="link" class="form-control" placeholder="Paste Link Here">
                     </div>
                     <div class="form-group mt-4">
                         <button class="btn btn-success" type="submit"  id="button" value="Submit" ><strong>Submit Assignment</strong></button>
                     </div>
                 
             </form>
-                <div class="card-text mt-3 fw-bold">Last Date: 22/12/12</div>
+                <!-- <div class="card-text mt-3 fw-bold">Last Date: 22/12/12</div> -->
             </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
                               <th>Module</th>
                               <th>Assessed By</th>
                               <th>Marks</th>
-                              <th>Re</th>
+                              <th>Feedback</th>
                             </tr>
                            
                           </thead>
@@ -78,7 +78,7 @@
         <div class="card lol bg-info text-dark " >
             <img class="card-img-top img-fluid" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image">
             <div class="card-body">
-            <h3 class="card-title text-center">Student Name</h3>
+            <h3 class="card-title text-center">{{username}}</h3>
             <p class="card-text text-center">About Student</p>
             <a href="" class="editbutton btn btn-success " type="submit"  id="button" value="Submit" ><strong>Edit Profile</strong></a>
         </div>

@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   
   email:string = '';
   password:string = '';
+  role:any;
 
   constructor(
     private toastr: ToastrService,
@@ -53,10 +54,15 @@ export class LoginComponent implements OnInit {
         if(data.success){
           this.AuthService.storeUserData(data.token, data.user, data.role, data.username, data.id);
           this.toastr.success('Login Successful');
-          if('Admin' == data.role){
+         // console.log(JSON.parse(JSON.stringify(data.role)));
+          const role = localStorage.getItem('role');
+          console.log(role);
+          
+          
+          if('Admin' == role){
             this.Router.navigate(['/admindashboard']);
           }
-          else if('Trainer' == data.role){
+          else if('Trainer' == role){
             this.Router.navigate(['/trainerdashboard']);
           }
           else{
