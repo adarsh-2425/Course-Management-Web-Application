@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'trainerdashboard', component: TrainerDashboardComponent,
-    canActivate: [AuthGuard]
+   
   },
   {
     path: 'studentdashboard', component: StudentDashboardComponent,
