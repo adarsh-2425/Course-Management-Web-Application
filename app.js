@@ -23,6 +23,7 @@ const app = express();
 
 const users = require('./routes/users');
 const courses = require('./routes/courses');
+const assessments = require('./routes/assessments');
 
 // CORS Middleware
 app.use(cors());
@@ -48,6 +49,7 @@ require('./config/passport')(passport);
 
 app.use('/users', users);
 app.use('/courses', courses);
+app.use('/assessments', assessments);
 
 // Index Route
 app.get('/',(req,res)=>{
