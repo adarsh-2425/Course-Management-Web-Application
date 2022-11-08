@@ -37,3 +37,21 @@
     color: rgb(234, 9, 255);
     
 }
+.details{
+    display:inline;
+    float: left;
+}
+.lol{
+    display:inline;
+    float: right;
+
+}
+.clock{
+    padding-left: 0.5em;
+    color: grey;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+.clock2{
+    font-weight:100 !important;
+    
+}
