@@ -10,3 +10,30 @@
     color:#fff;
     text-align: center;
 }
+
+
+.coursecard{
+    background-color: rgb(25, 25, 61);
+}
+
+.pinkbutton {
+    background-color: rgb(234, 9, 255);
+    border: 2px solid white
+}
+.pinkbutton:hover{
+    background-color: white;
+    color: rgb(234, 9, 255);
+}
+.viewcoursebutton{
+    background-color: rgb(234, 9, 255);
+    border: 2px solid white
+}
+.viewcoursebutton:hover{
+    background-color: rgb(43, 43, 240);
+    border: 2px solid white
+}
+
+.fa-grip-lines{
+    color: rgb(234, 9, 255);
+    
+}
