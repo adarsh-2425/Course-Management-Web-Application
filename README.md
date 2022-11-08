@@ -39,6 +39,7 @@ https://getbootstrap.com/docs/4.0/components/buttons/
 https://material.angular.io/components/dialog/overview
 
 ## Close Angular Dialog
+```
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
@@ -53,6 +54,7 @@ export class DialogOverviewExampleDialog {
     this.dialogRef.close();
   }
 }
+```
 
 ## How to make text responsive in Bootstrap
 
@@ -63,8 +65,7 @@ Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport
 
 ## Youtube video Embed
 ```
-      <iframe
-      src="https://www.youtube.com/embed/vlDzYIIOYmM?start=90&rel=0&autoplay=1&mute=1&controls=0"
+      <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM?start=90&rel=0&autoplay=1&mute=1&controls=0"
       title="YouTube video"
       allowfullscreen>
       </iframe>
