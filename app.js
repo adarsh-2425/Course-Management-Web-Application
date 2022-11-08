@@ -6,8 +6,10 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 var session = require('cookie-session');
+var dotenv = require('dotenv').config();
 
 // Connect to Database
+var url = process.env.MONGODB_URI;
 mongoose.connect(config.database);
 
 // On Connection

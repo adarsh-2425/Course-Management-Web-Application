@@ -31,9 +31,14 @@ export class AssessmentService {
     return this.http.get(`${this.server_address}/assessments/read`);
   }
 
-  // Read Each Assignment
+  // Read Each Assignment by id
   getAssignment(id:any){
     return this.http.get(`${this.server_address}/assessments/geteach/`+id)
+  }
+
+  // Read Each Assignment by username
+  getAssignmentByUsername(username:any){
+    return this.http.get(`${this.server_address}/assessments/geteachbyusername/`+username)
   }
 
   // Update Assignment with Marks

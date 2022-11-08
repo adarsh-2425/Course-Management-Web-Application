@@ -11,6 +11,15 @@ router.get(`/geteach/:id`, (req,res)=>{
     })
 });
 
+//Read Assignments by Username
+router.get('/geteachbyusername/:username', (req,res)=>{
+    const username = req.params.username;
+    Assessment.find({"Username":username})
+    .then((assessment)=>{
+        res.send(assessment);
+    })
+})
+
 // Create New Assignment
 router.post('/create',(req,res)=>{
     let newAssessment = new Assessment({

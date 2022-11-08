@@ -14,6 +14,8 @@ export class StudentDashboardComponent implements OnInit {
   link:any;
   module:any;
 
+  Assignments:any[] | undefined;
+
 
   constructor(
     private toastr: ToastrService,
@@ -23,6 +25,10 @@ export class StudentDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+    this.AssessmentService.getAssignmentByUsername(this.username).subscribe((data)=>{
+      this.Assignments = JSON.parse(JSON.stringify(data));
+      console.log(this.Assignments);
+     })
   }
 
   onAssignmentSubmit(){

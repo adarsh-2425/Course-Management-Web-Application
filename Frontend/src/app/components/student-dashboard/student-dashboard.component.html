@@ -58,11 +58,11 @@
                            
                           </thead>
                           <tbody>
-                              <tr >
-                                  <td>lol</td>
-                                  <td>lol</td>
-                                  <td>lol</td>
-                                  <td class="text-area">Good Old Lol</td>
+                              <tr *ngFor="let Assignment of Assignments">
+                                  <td>{{Assignment.Module}}</td>
+                                  <td>{{Assignment.AssessedBy}}</td>
+                                  <td>{{Assignment.Mark}}</td>
+                                  <td class="text-area">{{Assignment.Feedback}}</td>
                                 </tr>              
                           </tbody>
                         </table>

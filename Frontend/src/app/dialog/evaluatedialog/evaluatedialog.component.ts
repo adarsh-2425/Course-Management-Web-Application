@@ -17,6 +17,7 @@ export class EvaluatedialogComponent implements OnInit {
     mark:'',
     feedback:''
   }
+  
   //this.Assignments.assessedBy = localStorage.getItem('username');
 
 //trainer@gmail.com
@@ -34,10 +35,12 @@ export class EvaluatedialogComponent implements OnInit {
     const evaluateId = localStorage.getItem('evaluateId');
     this.AssessmentService.getAssignment(evaluateId).subscribe((data)=>{
      this.Assignments = JSON.parse(JSON.stringify(data));
-    })
+    });
   }
 
   evaluateAssignment(){
+
+
     
     this.AssessmentService.updateAssignment(this.Assignments);
     console.log(this.Assignments);
