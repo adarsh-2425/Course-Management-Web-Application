@@ -1,0 +1,12 @@
+#overlay {
+    background:#000;
+    font-size: 4vw;;
+    opacity:0.5;
+    /*background:rgba(255,255,255,0.8); or just this*/
+    z-index:50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+    text-align: center;
+}
