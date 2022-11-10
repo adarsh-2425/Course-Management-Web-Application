@@ -14,6 +14,7 @@ export class StudentDashboardComponent implements OnInit {
   studentEmail: any;
   link:any;
   module:any;
+  courseName:any;
 
   Assignments:any[] | undefined;
 
@@ -27,10 +28,10 @@ export class StudentDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
     this.studentEmail = localStorage.getItem('email');
+    this.courseName = localStorage.getItem('courseName');
     this.AssessmentService.getAssignmentByUsername(this.username).subscribe((data)=>{
       this.Assignments = JSON.parse(JSON.stringify(data));
       console.log(this.Assignments);
-      console.log(this.studentEmail);
       
      })
   }
@@ -39,6 +40,7 @@ export class StudentDashboardComponent implements OnInit {
     const Assignment = {
       username: this.username,
       studentEmail: this.studentEmail,
+      courseName: this.courseName,
       link: this.link,
       module: this.module
     }

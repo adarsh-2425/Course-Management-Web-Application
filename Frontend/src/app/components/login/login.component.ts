@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data => {
         if(data.success){
-          this.AuthService.storeUserData(data.token, data.user, data.email, data.role, data.username, data.id);
+          this.AuthService.storeUserData(data.token, data.user, data.email, data.role, data.username, data.id, data.courseName);
           this.toastr.success('Login Successful');
          // console.log(JSON.parse(JSON.stringify(data.role)));
           const role = localStorage.getItem('role');

@@ -18,7 +18,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         default:'student'
     },
-    course: {
+    Name: {
         type: String
     },
     phone: {

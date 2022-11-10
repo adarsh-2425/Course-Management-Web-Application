@@ -1,7 +1,7 @@
 <div [ngStyle]="{'background': 'linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%)'}">
 <div class="container" >
     <div class=" mb-4 p-5 bg-success text-white rounded text-center">
-        <h1>Course Name</h1>
+        <h1>{{courseName}}</h1>
         </div>
 <div class="row">
     <!-- Main Dashboard -->
@@ -78,7 +78,7 @@
         <div class="card lol bg-info text-dark " >
             <img class="card-img-top img-fluid" src="https://www.w3schools.com/bootstrap4/img_avatar1.png" alt="Card image">
             <div class="card-body">
-            <h3 class="card-title text-center">{{username}}</h3>
+            <h3 class="card-title text-center">{{username}} Course</h3>
             <p class="card-text text-center">About Student</p>
             <a href="" class="editbutton btn btn-success " type="submit"  id="button" value="Submit" ><strong>Edit Profile</strong></a>
         </div>

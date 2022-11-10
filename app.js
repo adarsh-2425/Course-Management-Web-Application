@@ -30,8 +30,7 @@ const assessments = require('./routes/assessments');
 // CORS Middleware
 app.use(cors());
 
-// Set Static Folder
-app.use(express.static(`./public`));
+
 
 
 // bodyparser parses incoming request. eg: parsing content from form
@@ -49,14 +48,17 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-app.use('/users', users);
-app.use('/courses', courses);
-app.use('/assessments', assessments);
+app.use('/api/users', users);
+app.use('/api/courses', courses);
+app.use('/api/assessments', assessments);
+
+// Set Static Folder
+app.use(express.static(`./public`));
 
 // Index Route
-// app.get('/', (req, res) => {
-//     res.send(process.env.Password);
-// })
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+    });
 
 
 // Start Server

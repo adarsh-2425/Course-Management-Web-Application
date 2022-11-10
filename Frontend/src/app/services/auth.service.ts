@@ -6,8 +6,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AuthService {
 
-  //server_address= "api";
-  server_address= "http://localhost:3000";
+  server_address= "api";
+//server_address= "http://localhost:3000";
 
   authtoken: any;
   user: any;
@@ -15,6 +15,7 @@ export class AuthService {
   username:any;
   id:any;
   email:any;
+  Name:any;
 
   constructor(private http:HttpClient) { }
 
@@ -35,18 +36,20 @@ export class AuthService {
     })
   }
 
-  storeUserData(token:any, user:any, role:any, username:any, id:any, email:any){
+  storeUserData(token:any, user:any, role:any, username:any,id:any,Name:any,email:any){
     localStorage.setItem('id_token', token);
     localStorage.setItem('id', user.id);
     localStorage.setItem('email', user.email);
     localStorage.setItem('role', user.role);
     localStorage.setItem('username', user.username);
+    localStorage.setItem('courseName', user.Name)
     this.id = id;
     this.authtoken  = token;
     this.user = user;
     this.role = role;
     this.email = email;
     this.username = username;
+    this.Name = Name;
   }
 
   loadToken(){

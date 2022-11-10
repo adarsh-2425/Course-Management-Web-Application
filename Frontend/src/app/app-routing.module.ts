@@ -20,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'trainerdashboard', component: TrainerDashboardComponent,
+    canActivate: [AuthGuard]
    
   },
   {

@@ -20,6 +20,7 @@ router.post('/create',(req,res,next)=>{
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         gender: req.body.gender,
+        Name: req.body.courseName,
         email: req.body.email,
         role: req.body.role,
         phone: req.body.phone,
@@ -64,7 +65,9 @@ router.post('/create',(req,res,next)=>{
     from: '"Learn Academy" <adarsh.lol2425@zohomail.in>', // sender address
     to: newUser.email, // list of receivers
     subject: "Account Created", // Subject line
-    text: "Account Created. Welcome to Learn Academy.", // plain text body
+    text:  `Hello ${newUser.firstName}.\n
+    Your Account is Succesfully created\n
+    Welcome to Learn Academy` // plain text body
   };
 
   // send mail with defined transport object
@@ -105,6 +108,7 @@ router.post('/authenticate',(req, res, next)=>{
                         username: user.username,
                         email: user.email,
                         role: user.role,
+                        Name: user.Name
                 }
                });
             }

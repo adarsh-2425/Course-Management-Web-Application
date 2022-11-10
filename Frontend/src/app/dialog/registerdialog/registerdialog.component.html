@@ -31,6 +31,18 @@
             </select>
             <!-- <input type="text" [(ngModel)]="gender" name="gender" class="form-control"> -->
         </div>
+
+        <!-- Course Name -->
+        <div class="form-group mt-2">
+            <label for="name">Select Course</label>
+            <select name="courseName"  [(ngModel)]="courseName"  class="form-select" placeholder="courseName">
+                <option id="disabled" value="" style="color: grey;" disabled selected>Select Course</option>
+                <option   value="{{CourseName.Name}}" *ngFor="let CourseName of Courses">{{CourseName.Name}}</option>
+            </select>
+        </div>
+
+        
+
         <div class="form-group">
             <label for="name">Phone Number</label>
             <span class="asterik"> *</span>

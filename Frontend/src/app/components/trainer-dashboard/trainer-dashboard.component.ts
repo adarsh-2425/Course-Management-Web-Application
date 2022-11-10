@@ -13,6 +13,7 @@ export class TrainerDashboardComponent implements OnInit {
 
   Assignments:any[] | undefined;
   trainername: any;
+  courseName:any;
 
   constructor(
     private dialog: MatDialog,
@@ -22,6 +23,7 @@ export class TrainerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.trainername = localStorage.getItem('username');
+    this.courseName = localStorage.getItem('courseName');
 
     this.AssessmentService.getAssignments()
     .subscribe((data)=>{

@@ -7,7 +7,7 @@ const Course = require('../models/course')
 // Create New Course
 router.post('/create',(req,res)=>{
     let newCourse = new Course({
-        Name: req.body.name,
+        Name: req.body.Name,
         Duration: req.body.duration,
         Fee: req.body.fee
     });
@@ -32,13 +32,13 @@ router.get('/read',(req,res)=>{
 //Update Courses
 router.put('/update', (req,res)=>{
     id=req.body._id,
-    Name= req.body.name,
+    courseName= req.body.courseName,
     Duration=req.body.duration,
     Fee= req.body.fee,
 
     Course.findByIdAndUpdate({"_id":id},
                             {$set:{
-                                "Name": Name,
+                                "courseName": courseName,
                                 "Duration": Duration,
                                 'Fee': Fee
                             }})

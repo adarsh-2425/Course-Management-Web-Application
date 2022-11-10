@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { AssessmentService } from 'src/app/services/assessment.service';
 
 @Component({
   selector: 'app-registerdialog',
@@ -20,6 +21,9 @@ export class RegisterdialogComponent implements OnInit {
   Emailhtml:string = '';
   borderLastName:string = '';
   theHtmlString:string = '';
+
+  Courses:any[] | undefined;
+  courseName:string = '';
   
   firstName:string = '';
   lastName:string = '';
@@ -39,10 +43,17 @@ export class RegisterdialogComponent implements OnInit {
     private validateService: ValidateService,
     private authService: AuthService,
     private router: Router,
+    private AssessmentService: AssessmentService,
     public dialogRef: MatDialogRef<RegisterdialogComponent>,
   ) { }
 
   ngOnInit(): void {
+    this.AssessmentService.viewCourses()
+    .subscribe((data)=>{
+      this.Courses = JSON.parse(JSON.stringify(data))
+      console.log(this.Courses);
+        
+    })
   }
 
   // Checking Password Strength
@@ -87,6 +98,7 @@ if(this.validateService.isPassword(user.password)){
       lastName: this.lastName.trim(),
       gender: this.gender.trim(),
       phone: this.phone.trim(),
+      courseName: this.courseName,
       email: this.email.trim(),
       username: this.email.trim(),
       password: this.password.trim(),
