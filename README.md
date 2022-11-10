@@ -17,6 +17,8 @@ The objective of this project is to develop an application for management of cou
 ● Basic understanding of the client-side processes and requirements
 ● Basic understanding of the server-side processes and requirements
 
+# REFERENCES
+
 ## Adding Bootstrap via npm
 https://stackoverflow.com/questions/37649164/how-to-add-bootstrap-to-an-angular-cli-project
 
