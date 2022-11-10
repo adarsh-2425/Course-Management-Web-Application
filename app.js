@@ -6,11 +6,11 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 var session = require('cookie-session');
-require('dotenv').config();
+
 
 
 // Connect to Database
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(config.database);
 
 // On Connection
 mongoose.connection.on('connected',()=>{
@@ -56,7 +56,7 @@ app.use('/api/assessments', assessments);
 app.use(express.static(`./public`));
 
 // Index Route
-app.get('/', function(req, res) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
     });
 
