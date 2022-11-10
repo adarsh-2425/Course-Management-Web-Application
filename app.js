@@ -6,7 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 var session = require('cookie-session');
-
+require('dotenv').config();
 
 
 // Connect to Database
