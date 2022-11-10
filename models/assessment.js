@@ -5,6 +5,9 @@ const AssessmentSchema = mongoose.Schema({
     Username: {
         type: String
     },
+    studentEmail: {
+        type: String
+    },
     Link: {
         type: String
     },

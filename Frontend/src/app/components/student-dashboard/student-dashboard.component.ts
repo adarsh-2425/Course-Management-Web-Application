@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class StudentDashboardComponent implements OnInit {
 
   username: any;
+  studentEmail: any;
   link:any;
   module:any;
 
@@ -34,6 +35,7 @@ export class StudentDashboardComponent implements OnInit {
   onAssignmentSubmit(){
     const Assignment = {
       username: this.username,
+      studentEmail: this.studentEmail,
       link: this.link,
       module: this.module
     }

@@ -5,6 +5,9 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const bcrypt = require('bcryptjs');
+const nodemailer = require("nodemailer");
+
+require('dotenv').config();
 
 
 
@@ -26,6 +29,7 @@ router.post('/create',(req,res,next)=>{
         password: req.body.password
     });
 
+
     //created new function called addUser
     // newUser object and a callback(err,user) is passed
     User.addUser(newUser, (err,user)=>{
@@ -37,6 +41,41 @@ router.post('/create',(req,res,next)=>{
             res.json({success: true, msg:'User Registered'})
         }
     })
+
+    // Nodemailer stackoverflow
+    // https://stackoverflow.com/questions/71573382/what-type-of-email-should-i-use-for-nodemailer-to-not-get-blocked#:~:text=I%20used%20Zoho%20mail%20and,var%20transport%20%3D%20nodemailer.
+
+    // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.zoho.in", //mail.google.com
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: process.env.Email, // generated ethereal user
+      pass: process.env.Password // generated ethereal password
+    },
+    tls:{
+        rejectUnauthorized:false
+    }
+  });
+
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"Learn Academy" <adarsh.lol2425@zohomail.in>', // sender address
+    to: newUser.email, // list of receivers
+    subject: "Account Created", // Subject line
+    text: "Account Created. Welcome to Learn Academy.", // plain text body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  });
+  
 });
 
 //Authenticate

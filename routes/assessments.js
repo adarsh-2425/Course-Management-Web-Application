@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Assessment = require('../models/assessment');
+const dotenv = require('dotenv').config();
+const nodemailer = require("nodemailer");
 
 // Read Each Assignment
 router.get(`/geteach/:id`, (req,res)=>{
@@ -26,6 +28,7 @@ router.post('/create',(req,res)=>{
         Username: req.body.username,
         Link: req.body.link,
         LastDate: req.body.lastDate,
+        studentEmail: req.body.studentEmail,
         //SubmittedDate: req.body.submittedDate,
         CourseName: req.body.courseName,
         Module: req.body.module,
@@ -57,6 +60,7 @@ router.get('/read',(req,res)=>{
 router.put('/update', (req,res)=>{
         id = req.body._id,
         Username = req.body.username,
+        studentEmail = req.body.studentEmail,
         Link = req.body.link,
         SubmittedDate = req.body.submittedDate,
         CourseName = req.body.courseName,
@@ -78,7 +82,37 @@ router.put('/update', (req,res)=>{
                                 "Feedback" : Feedback
                             }})
             .then(function(){
-            res.send();
+            res.send()
+               // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.zoho.in", //mail.google.com
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    auth: {
+      user: process.env.Email, // generated ethereal user
+      pass: process.env.Password // generated ethereal password
+    },
+    tls:{
+        rejectUnauthorized:false
+    }
+  });
+
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"Learn Academy" <process.env.Email>', // sender address
+    to: studentEmail, // list of receivers
+    subject: "Assignment Evaluated", // Subject line
+    text: `Assignment of ${Module} Evaluated. Mark : ${Mark}. Evaluated By : ${AssessedBy}. Feedback : ${Feedback}`, // plain text body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  });
         })
     });
 

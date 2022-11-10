@@ -4,7 +4,7 @@
 <section class="youtube">
   <div class="ratio ratio-16x9">
     <iframe
-      src="https://www.youtube.com/embed/vlDzYIIOYmM?start=90&rel=0&autoplay=1&mute=0&controls=0&loop=1"
+      src="https://www.youtube.com/embed/vlDzYIIOYmM?start=90&rel=0&autoplay=1&mute=1&controls=0&loop=1"
       title="YouTube video"
       allowfullscreen
     ></iframe>
@@ -65,10 +65,10 @@
 <!-- Short courses -->
 <div class="row">
   <div class="head col-lg-6 mt-5 mb-5">
-    <h2 class="text-left">Short courses: <span class="fw-bold">bite-sized, <br>
+    <h2 class="text-left textcolordarkblue">Short courses: <span class="fw-bold">bite-sized, <br>
       flexible learning</span></h2>
       <i class="fa-solid fa-grip-lines fa-4x"></i>
-      <p class="fw-bold">
+      <p class="fw-bold textcolordarkblue">
         Upskill, reskill or pursue a passion with short courses across every subject, whether you’re a beginner or already an expert.
       </p>
       <button class="btn viewcoursebutton text-light fw-bold">View all short courses</button>
@@ -82,6 +82,10 @@
       
       <img src="https://ugc.futurelearn.com/uploads/images/36/d6/header_36d68953-a00a-4f96-8016-7dc8607c7771.jpg"  class="card-img-top" alt="...">
       <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://www.pngfind.com/pngs/m/342-3423094_geraint-morgan-open-university-logo-png-transparent-png.png" width="100vw" alt="">
+        </div>
         <p class="card-text text-secondary">The Open University</p>
         <a href="#" class="stretched-link"></a>
         <h5 class="card-title mb-3">Introduction to Cyber Security</h5>
@@ -91,17 +95,24 @@
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>IT & Computer Science</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer">
+      <div class="chips  ">
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip color="accent" selected>IT & Computer Science</mat-chip>
+        </mat-chip-list>
+      </div>
     </div>
     </div>
    
     <div class="card margin" >
       <img src="https://ugc.futurelearn.com/uploads/images/fd/ee/header_fdee0391-6169-4d17-a80f-7825b6cc23ff.jpg"  class="card-img-top" alt="...">
       <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="data:image/png;base64,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" width="100vw" alt="">
+        </div>
         <p class="card-text text-secondary">CIPD - Chartered Institute of Personnel and Development</p>
         <a href="#" class="stretched-link"></a>
         <h5 class="card-title mb-3">People Management Skills</h5>
@@ -111,17 +122,22 @@
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>IT & Computer Science</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer ">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Business and Management</mat-chip>
+      </mat-chip-list>
     </div>
     </div>
 
     <div class="card margin">
       <img src="https://ugc.futurelearn.com/uploads/images/e8/af/header_e8afd140-8fd8-4e1c-8742-0523519819ae.jpg"  class="card-img-top" alt="...">
       <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://www.casita.com/images/listing/2365/orig/130778613720200116113349AM.png" width="100vw" alt="">
+        </div>
         <p class="card-text text-secondary">University of Reading</p>
         <a href="#" class="stretched-link"></a>
         <h5 class="card-title mb-3">Understanding Anxiety, Depression and CBT</h5>
@@ -131,11 +147,12 @@
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>IT & Computer Science</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Psychology & Mental Health</mat-chip>
+      </mat-chip-list>
     </div>
     </div>
 
@@ -146,10 +163,10 @@
 <div class="row">
   <div class="col-lg-6"></div>
   <div class="head col-lg-6 mt-5 mb-5">
-    <h2 class="text-left">ExpertTracks: become an <br> <span class="fw-bold">expert in your industry
+    <h2 class="text-left textcolordarkblue">ExpertTracks: become an <br> <span class="fw-bold">expert in your industry
       </span></h2>
       <i class="fa-solid fa-grip-lines fa-4x"></i>
-      <p class="fw-bold">
+      <p class="fw-bold textcolordarkblue">
         Master new skills and specialise with these series of in-depth courses.
       </p>
       <button class="btn viewcoursebutton text-light fw-bold">View all Expert Tracks</button>
@@ -177,17 +194,22 @@
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">5-8  hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>Business and Management</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Business and Management</mat-chip>
+      </mat-chip-list>
     </div>
     </div>
    
     <div class="card " >
-      <img src="https:source.unsplash.com/G66K_ERZRhM"  class="card-img-top" alt="...">
+      <img src="https://i.guim.co.uk/img/media/ad242dc8d864b510c7e721c3da36a5a7f00f672c/0_27_5086_3052/master/5086.jpg?width=700&quality=85&auto=format&fit=max&s=a54af9fdd3c270472c5341781b3606c6"  class="card-img-top" alt="...">
       <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://www.growag.com/storage/1079/conversions/CQUniversity-resized-contain-350x200.jpg"  width="100vw" alt="">
+        </div>
         <p class="card-text text-secondary">Central Queensland University</p>
         <a href="#" class="stretched-link"></a>
         <h5 class="card-title mb-3">Educational Neuroscience: Research-Led Teaching Approaches</h5>
@@ -197,31 +219,108 @@
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>Teaching</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Teaching</mat-chip>
+      </mat-chip-list>
     </div>
     </div>
 
     <div class="card ">
-      <img src="https://ugc.futurelearn.com/uploads/images/e8/af/header_e8afd140-8fd8-4e1c-8742-0523519819ae.jpg"  class="card-img-top" alt="...">
+      <img src="https://source.unsplash.com/b21Ty33CqVs"  class="card-img-top" alt="...">
       <div class="card-body">
-        <p class="card-text text-secondary">University of Reading</p>
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://banner2.cleanpng.com/20180629/art/kisspng-coventry-university-bishop-grosseteste-university-ielts-logo-5b36ff41714df3.9293482215303309454641.jpg" width="100vw" alt="">
+        </div>
+        <p class="card-text text-secondary">Coventry University</p>
         <a href="#" class="stretched-link"></a>
-        <h5 class="card-title mb-3">Understanding Anxiety, Depression and CBT</h5>
+        <h5 class="card-title mb-3">Project Management and its Role in Effective Business</h5>
+        <div class="details" >
+        <i class="fa-regular fa-hourglass-half"><span class="clock ">10 Weeks</span></i>
+      </div>
+      <div class="lol">
+        <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
+      </div>
+      
+    </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Business and Management</mat-chip>
+      </mat-chip-list>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Short courses -->
+<div class="row">
+  <div class="head col-lg-6 mt-5 mb-5">
+    <h2 class="text-left textcolordarkblue">Microcredentials: <span class="fw-bold">build in-<br>
+      demand career skills</span></h2>
+      <i class="fa-solid fa-grip-lines fa-4x"></i>
+      <p class="fw-bold textcolordarkblue">
+        Gain a professional or academic qualification to boost your CV.
+      </p>
+      <button class="btn viewcoursebutton text-light fw-bold">View all Microcredentials</button>
+  </div>
+</div>
+
+<!-- Course card -->
+<div class="row ">
+  <div class="card-group ">
+    <div class="card margin1">
+      
+      <img src="https://source.unsplash.com/JpCOGj0uIlI"  class="card-img-top" alt="...">
+      <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://www.pollenstudio.fr/app/uploads/2019/02/institut-franccca7ais-de-la-mode_logo.png" width="100vw" alt="">
+        </div>
+
+        <p class="card-text text-secondary">Institut Français de la Mode (IFM)</p>
+        <a href="#" class="stretched-link"></a>
+        <h5 class="card-title mb-3">Fashion Sustainability: Shaping Fashion's Future</h5>
+        <div class="details" >
+        <i class="fa-regular fa-hourglass-half"><span class="clock ">10 Weeks</span></i>
+      </div>
+      <div class="lol">
+        <i class="fa-solid fa-clock"><span class="clock clock2">5-8  hrs per week</span></i>
+      </div>
+      
+    </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Creative Arts & Media</mat-chip>
+      </mat-chip-list>
+    </div>
+    </div>
+   
+    <div class="card margin1" >
+      <img src="https:source.unsplash.com/Oalh2MojUuk"  class="card-img-top" alt="...">
+      <div class="card-body">
+        <!-- image overlay -->
+        <div class="card-img-overlay">
+          <img src="https://unglobalcompact.org.au/wp-content/uploads/2020/04/deakin.png"  width="100vw" alt="">
+        </div>
+        <p class="card-text text-secondary">Deakin University</p>
+        <a href="#" class="stretched-link"></a>
+        <h5 class="card-title mb-3">Innovation and Leadership</h5>
         <div class="details" >
         <i class="fa-regular fa-hourglass-half"><span class="clock ">5 Weeks</span></i>
       </div>
       <div class="lol">
         <i class="fa-solid fa-clock"><span class="clock clock2">3 hrs per week</span></i>
       </div>
-      <div class="chips mt-5 ">
-      <mat-chip-list aria-label="Fish selection">
-        <mat-chip>IT & Computer Science</mat-chip>
-      </mat-chip-list>
+      
     </div>
+    <div class="card-footer">
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="accent" selected>Business & Management</mat-chip>
+      </mat-chip-list>
     </div>
     </div>
 

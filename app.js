@@ -6,11 +6,11 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 var session = require('cookie-session');
-var dotenv = require('dotenv').config();
+require('dotenv').config();
+
 
 // Connect to Database
-var url = process.env.MONGODB_URI;
-mongoose.connect(config.database);
+mongoose.connect(process.env.MONGODB_URI);
 
 // On Connection
 mongoose.connection.on('connected',()=>{
@@ -54,9 +54,10 @@ app.use('/courses', courses);
 app.use('/assessments', assessments);
 
 // Index Route
-app.get('/',(req,res)=>{
-    res.send('server ok');
-})
+// app.get('/', (req, res) => {
+//     res.send(process.env.Email);
+// })
+
 
 // Start Server
 app.listen(process.env.PORT || 3000, function(){
