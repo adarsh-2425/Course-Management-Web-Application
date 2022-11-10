@@ -4,6 +4,7 @@ const Assessment = require('../models/assessment');
 const dotenv = require('dotenv').config();
 const nodemailer = require("nodemailer");
 
+require('dotenv').config();
 // Read Each Assignment
 router.get(`/geteach/:id`, (req,res)=>{
     const id = req.params.id;
@@ -69,6 +70,10 @@ router.put('/update', (req,res)=>{
         AssessedBy = req.body.AssessedBy,
         Feedback = req.body.feedback
 
+        console.log(process.env.Password);
+        console.log(process.env.Email);
+
+
         
         Assessment.findByIdAndUpdate({"_id":id},
                             {$set:{
@@ -77,6 +82,7 @@ router.put('/update', (req,res)=>{
                                 "SubmittedDate" : SubmittedDate,
                                 "CourseName" : CourseName,
                                 "Module" : Module,
+                                "studentEmail": studentEmail,
                                 "Mark" : Mark,
                                 "AssessedBy" : AssessedBy,
                                 "Feedback" : Feedback
@@ -99,10 +105,10 @@ router.put('/update', (req,res)=>{
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Learn Academy" <process.env.Email>', // sender address
+    from: '"Learn Academy" <adarsh.lol2425@zohomail.in>', // sender address
     to: studentEmail, // list of receivers
     subject: "Assignment Evaluated", // Subject line
-    text: `Assignment of ${Module} Evaluated. Mark : ${Mark}. Evaluated By : ${AssessedBy}. Feedback : ${Feedback}`, // plain text body
+    text: `Assignment of ${Module} Evaluated.\n Grade Obtained : ${Mark}.\n Evaluated By : ${AssessedBy}.\n Feedback : ${Feedback}`, // plain text body
   };
 
   // send mail with defined transport object

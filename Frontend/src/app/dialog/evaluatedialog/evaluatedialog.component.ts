@@ -11,14 +11,17 @@ import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class EvaluatedialogComponent implements OnInit {
 
+  
+
   Assignments = {
     Username: '',
     Link:'',
     mark:'',
-    feedback:''
+    feedback:'',
+    AssessedBy: localStorage.getItem('username')
   }
   
-  //this.Assignments.assessedBy = localStorage.getItem('username');
+
 
 //trainer@gmail.com
 //trainer@lol
@@ -31,7 +34,6 @@ export class EvaluatedialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //const AssessedBy = localStorage.getItem('username');
     const evaluateId = localStorage.getItem('evaluateId');
     this.AssessmentService.getAssignment(evaluateId).subscribe((data)=>{
      this.Assignments = JSON.parse(JSON.stringify(data));

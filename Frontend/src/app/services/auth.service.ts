@@ -14,6 +14,7 @@ export class AuthService {
   role: any;
   username:any;
   id:any;
+  email:any;
 
   constructor(private http:HttpClient) { }
 
@@ -34,16 +35,17 @@ export class AuthService {
     })
   }
 
-  storeUserData(token:any, user:any, role:any, username:any, id:any){
+  storeUserData(token:any, user:any, role:any, username:any, id:any, email:any){
     localStorage.setItem('id_token', token);
     localStorage.setItem('id', user.id);
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('email', user.email);
     localStorage.setItem('role', user.role);
     localStorage.setItem('username', user.username);
     this.id = id;
     this.authtoken  = token;
     this.user = user;
     this.role = role;
+    this.email = email;
     this.username = username;
   }
 

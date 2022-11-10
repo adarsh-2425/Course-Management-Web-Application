@@ -6,7 +6,7 @@
 </div>
 <!-- Evaluate -->
 <div class="mb-4 p-3 bg-secondary text-white rounded text-center">
-    <h1>`{{Assignments.Username}} Assignment`</h1>
+    <h1>{{Assignments.Username}} Assignment</h1>
 </div>
 <a href="{{Assignments.Link}}" target="_blank" class="viewbutton btn btn-primary text-center fw-bold">View Assignment</a>
 
@@ -29,6 +29,11 @@
         <label for="feedback" class="fw-bold mb-2">Feedback</label>
         <input type="text" [(ngModel)]="Assignments.feedback" name="feedback" class="form-control" id="feedback">
     </div>
+    <!-- <div class="form-group mb-4">
+            <select name="AssessedBy" [(ngModel)]="Assignments.AssessedBy"  id="AssessedBy"  >
+                <option value="{{AssessedBy}}" selected>Assessed By : {{AssessedBy}}</option>
+            </select>
+    </div> -->
     <div class="form-group mt-4 text-center">
         <a  class="btn btn-danger cancel"  value="Cancel">Cancel</a>
         <input type="submit"  class="btn btn-success"  value="Done">

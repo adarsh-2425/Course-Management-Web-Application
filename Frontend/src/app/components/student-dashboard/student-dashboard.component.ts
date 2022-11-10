@@ -26,9 +26,12 @@ export class StudentDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
+    this.studentEmail = localStorage.getItem('email');
     this.AssessmentService.getAssignmentByUsername(this.username).subscribe((data)=>{
       this.Assignments = JSON.parse(JSON.stringify(data));
       console.log(this.Assignments);
+      console.log(this.studentEmail);
+      
      })
   }
 

@@ -55,7 +55,7 @@ app.use('/assessments', assessments);
 
 // Index Route
 // app.get('/', (req, res) => {
-//     res.send(process.env.Email);
+//     res.send(process.env.Password);
 // })
 
 
