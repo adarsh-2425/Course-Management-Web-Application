@@ -70,8 +70,7 @@ router.put('/update', (req,res)=>{
         AssessedBy = req.body.AssessedBy,
         Feedback = req.body.feedback
 
-        console.log(process.env.Password);
-        console.log(process.env.Email);
+        console.log(Mark);
 
 
         
@@ -108,7 +107,10 @@ router.put('/update', (req,res)=>{
     from: '"Learn Academy" <adarsh.lol2425@zohomail.in>', // sender address
     to: studentEmail, // list of receivers
     subject: "Assignment Evaluated", // Subject line
-    text: `Assignment of ${Module} Evaluated.\n Grade Obtained : ${Mark}.\n Evaluated By : ${AssessedBy}.\n Feedback : ${Feedback}`, // plain text body
+    text: `Assignment of Module ${Module} Evaluated.\n
+    Grade Obtained : ${Mark}.\n
+    Evaluated By : ${AssessedBy}.\n
+    Feedback : ${Feedback}`, // plain text body
   };
 
   // send mail with defined transport object
